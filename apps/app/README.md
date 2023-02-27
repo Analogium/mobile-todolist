@@ -1,6 +1,6 @@
-# todomobileapp (todo-mobile-app)
+# todolistapp (todolistapp)
 
-todo list
+a todo list
 
 ## Install the dependencies
 ```bash
