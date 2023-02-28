@@ -1,3 +1,4 @@
+
 import mongoose from 'mongoose'
 
 const { Schema } = mongoose
@@ -9,6 +10,10 @@ const taskSchema = new Schema({
   },
   description: {
     type: String
+  },
+  isMake: {
+    type: Boolean,
+    default: false,
   }
 }, {
   timestamps: true
@@ -20,10 +25,10 @@ const listSchema = new Schema({
     required: true
   },
   tasks: [taskSchema]
-}, 
-{
-  timestamps: true
-})
+},
+  {
+    timestamps: true
+  })
 
 const ListModel = mongoose.model('List', listSchema)
 
