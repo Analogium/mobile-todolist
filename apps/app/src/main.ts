@@ -7,6 +7,7 @@ import VueBottomNavigation from "bottom-navigation-vue";
 
 
 
+
 import './assets/main.scss'
 
 export default defineComponent({
@@ -17,7 +18,6 @@ export default defineComponent({
   })
 
 const app = createApp(App)
-
 
 app.use(router)
 

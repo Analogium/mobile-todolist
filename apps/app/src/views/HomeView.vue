@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import NavBar from '../components/NavBar.vue'
+import TodoList from '../components/TodoList.vue';
 </script>
 
 <template>
@@ -18,14 +19,19 @@ import NavBar from '../components/NavBar.vue'
       </h1>
     </div>
 
+
+
+    <TodoList class="todolist"/>
+
+
+
+
     <NavBar />
-
-
 
   </main>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 h1 {
 
   width: 322px;
@@ -33,8 +39,6 @@ h1 {
   left: 23px;
   top: 89px;
 
-  font-family: 'Mulish', sans-serif;
-  font-style: normal;
   font-weight: 800;
   font-size: 30px;
   line-height: 38px;
@@ -51,8 +55,6 @@ p {
   left: 23px;
   top: 16px;
 
-  font-family: 'Mulish', sans-serif;
-  font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 25px;
@@ -86,6 +88,10 @@ p {
 .title-header {
   margin-top: 48px;
   padding-left: 23px;
+}
+
+.todolist {
+  margin-bottom: 100px;
 }
 
 </style>
