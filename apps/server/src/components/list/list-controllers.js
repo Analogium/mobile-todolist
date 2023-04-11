@@ -42,6 +42,7 @@ export const updateList = async (ctx) => {
   try {
     const schema = joi.object({
       title: joi.string(),
+      description: joi.string(),
       tasks: joi.array()
     })
     const { error, value } = schema.validate(ctx.request.body)
