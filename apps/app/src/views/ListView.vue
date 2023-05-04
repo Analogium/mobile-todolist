@@ -77,11 +77,11 @@ async function getTodoListInfo() {
 }
 
 function getUncompletedTask() {
-    return todoList.value.tasks?.filter((task) => !task.isMake) || [];
+    return todoList.value.tasks?.filter((task: { isMake: any; }) => !task.isMake) || [];
 }
 
 function getCompletedTask() {
-    return todoList.value.tasks?.filter((task) => task.isMake) || [];
+    return todoList.value.tasks?.filter((task: { isMake: any; }) => task.isMake) || [];
 }
 
 async function updateTask(task: any) {

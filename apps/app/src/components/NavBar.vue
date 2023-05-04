@@ -16,7 +16,8 @@ onMounted(async () => {
 });
 
 const todo = ref<Todo>({ title: "" });
-const todoLists: any[] = ref([]);
+const todoLists = ref<Todo[]>([]);
+
 
 function setPopup(bool: boolean) {
   popup.value = bool;
@@ -71,14 +72,14 @@ async function getTodos() {
     </div>
     <div v-else>
       <div v-for="(todo, index) in todoLists" :key="index" class="todo-container">
-        <router-link :to="'/lists/' + todo._id" class="router-list">
+        <RouterLink :to="'/lists/' + todo._id" class="router-list">
           {{ todo.title }}
-        </router-link>
+        </RouterLink>
       </div>
     </div>
   </div>
 
-  <v-dialog v-model="popup">
+  <VDialog v-model="popup">
     <div class="todolist-container">
       <h2>Créer une nouvelle liste</h2>
       <div class="close-button" @click="setPopup(false)">
@@ -103,7 +104,7 @@ async function getTodos() {
       </div>
 
     </div>
-  </v-dialog>
+  </VDialog>
 </template>
 
 <style scoped lang="scss">

@@ -19,7 +19,7 @@
       <router-link :to="'/lists/' + todoList._id" class="router-list">Voir la liste complète</router-link>
     </div>
     <div class="dialog-overlay" v-if="showDialogFlag">
-      <div class="dialog">
+      <div class="dialog" v-if="selectedTodoList">
         <h3>{{ selectedTodoList.title }}</h3>
         <div class="dialog-button-row">
           <router-link :to="'/lists/' + selectedTodoList._id + '/modify-todo'">
@@ -41,9 +41,16 @@ import { getTodoLists, updateTodoList, deleteTodoList } from '../api';
 import { ref, onMounted } from 'vue';
 import { Icon } from '@iconify/vue';
 
-const todoLists: any[] = ref([]);
+interface Todo {
+  _id?: string;
+  title: string;
+  tasks: any;
+}
+
+const todoLists = ref<Todo[]>([]);
+
 const showDialogFlag = ref(false);
-const selectedTodoList = ref(null);
+const selectedTodoList = ref<Todo>();
 
 onMounted(async () => {
   const response = await getTodoLists();
@@ -62,18 +69,20 @@ function showDialog(todoList: any) {
 }
 
 function hideDialog() {
-  selectedTodoList.value = null;
+  selectedTodoList.value = undefined;
   showDialogFlag.value = false;
 }
 
 
 async function deleteTodo() {
-
-  await deleteTodoList(selectedTodoList.value._id);
-  hideDialog()
-  const response = await getTodoLists();
-  todoLists.value = response.data;
+  if (selectedTodoList.value?._id) {
+    await deleteTodoList(selectedTodoList.value._id);
+    hideDialog()
+    const response = await getTodoLists();
+    todoLists.value = response.data;
+  }
 }
+
 
 </script>
 <style scoped>
