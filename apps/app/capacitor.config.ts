@@ -5,7 +5,10 @@ const config: CapacitorConfig = {
   appName: 'todolist',
   webDir: 'dist',
   server: {
-    androidScheme: 'https'
+    androidScheme: 'https',
+  },
+  android: {
+    allowMixedContent: true
   }
 };
 

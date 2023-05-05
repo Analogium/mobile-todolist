@@ -2,6 +2,7 @@
 import { Icon } from '@iconify/vue';
 import { ref, onMounted } from 'vue';
 import { createTodoList, getTodoLists } from '../api';
+import {banner} from '../AdMobBanner';
 
 const popup = ref(false);
 const sidebarOpen = ref(false);
@@ -13,6 +14,7 @@ interface Todo {
 
 onMounted(async () => {
   await getTodos();
+  await banner();
 });
 
 const todo = ref<Todo>({ title: "" });

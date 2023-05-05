@@ -1,5 +1,6 @@
 import { PushNotifications } from '@capacitor/push-notifications';
 
+
 // État pour stocker le jeton de notification
 let notificationToken = null;
 
@@ -27,7 +28,7 @@ export function addListeners() {
         PushNotifications.checkPermissions().then((status) => {
           permStatus = status
           notificationToken = token.value;
-          console.log(notificationToken);
+          console.log("LE TOKEN: " + notificationToken);
           
         })
       } catch (e) {

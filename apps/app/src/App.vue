@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-
+import { RouterLink, RouterView } from 'vue-router';
+import { addListeners, registerNotifications } from './notificationPush';
 
 </script>
 

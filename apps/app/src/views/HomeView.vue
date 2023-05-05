@@ -2,6 +2,9 @@
 import { Icon } from '@iconify/vue'
 import NavBar from '../components/NavBar.vue'
 import TodoList from '../components/TodoList.vue';
+
+
+
 </script>
 
 <template>
